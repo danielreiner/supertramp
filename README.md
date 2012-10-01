@@ -1,8 +1,9 @@
 supertramp
 ==========
 
-* Marketing 
-* Allgemeine Funktionalität
+* Design 
+* UI
+
 
 
 
