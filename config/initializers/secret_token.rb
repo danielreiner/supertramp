@@ -4,4 +4,4 @@
 # If you change this key, all old signed cookies will become invalid!
 # Make sure the secret is at least 30 characters and all random,
 # no regular words or you'll be exposed to dictionary attacks.
-Supertramp::Application.config.secret_token = '3b90d1d573e643eb209b3aab1cbf55bad06c6b37ef45e793e66c661fca06a0ecbebede5b05024e48b8ee5b664a4b39a9985c7c585ea08869e32b7b1d3f2d1a72'
+Supertramp::Application.config.secret_token = '7637e4b40b6b109bbfd1195afd617898d5d9da1285a484747b16a2dd6238ec11f43de3be2b86532d4c017c9df5c4cb261a1e3a8f5e8a44435854a04f9c8fabc4'
