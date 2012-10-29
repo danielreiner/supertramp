@@ -11,7 +11,65 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121011170131) do
+ActiveRecord::Schema.define(:version => 20121022230920) do
+
+  create_table "cards", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "theme_id"
+    t.string   "title"
+    t.string   "country"
+    t.text     "note"
+    t.integer  "position"
+    t.integer  "categories_count", :default => 0
+    t.datetime "created_at",                      :null => false
+    t.datetime "updated_at",                      :null => false
+  end
+
+  create_table "categories", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "theme_id"
+    t.integer  "card_id"
+    t.string   "title"
+    t.text     "note"
+    t.integer  "position"
+    t.integer  "contents_count", :default => 0
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+  end
+
+  create_table "comments", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "target_type"
+    t.integer  "target_id"
+    t.text     "body"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  create_table "contents", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "theme_id"
+    t.integer  "card_id"
+    t.integer  "category_id"
+    t.string   "title"
+    t.text     "note"
+    t.integer  "position"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  create_table "images", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "theme_id"
+    t.integer  "cards_id"
+    t.string   "image_file_name"
+    t.string   "title"
+    t.string   "origin"
+    t.text     "note"
+    t.integer  "position"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
 
   create_table "roles", :force => true do |t|
     t.string   "name"
@@ -23,6 +81,19 @@ ActiveRecord::Schema.define(:version => 20121011170131) do
 
   add_index "roles", ["name", "resource_type", "resource_id"], :name => "index_roles_on_name_and_resource_type_and_resource_id"
   add_index "roles", ["name"], :name => "index_roles_on_name"
+
+  create_table "themes", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "title"
+    t.text     "description"
+    t.string   "image_file_name"
+    t.string   "state",           :default => "in_progress"
+    t.boolean  "public",          :default => true,          :null => false
+    t.integer  "position"
+    t.integer  "cards_count",     :default => 0
+    t.datetime "created_at",                                 :null => false
+    t.datetime "updated_at",                                 :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false

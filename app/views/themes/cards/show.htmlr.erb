@@ -1,0 +1,34 @@
+<table class="bordered-table zebra-striped">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Kommentar</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= @card.id %></td>
+      <td><%= @card.title %></td>
+      <td><%= link_to "Kommentar" %></td>
+      <td><%= link_to 'Karte bearbeiten', edit_card_path, :class => 'btn large primary' %></td> 
+    </tr>
+  </tbody>
+</table>
+<table class="bordered-table zebra-striped">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Vergleichs-Kategorie</th>
+      <th>Kommentar</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @card.categories.each do |category| %>
+    <tr>
+      <td><%= category.id %></td>
+      <td><%= link_to category.title, show_theme_card_category_path(category) %></td>     
+    </tr>
+  <% end %>
+  </tbody>
+</table>

@@ -5,10 +5,10 @@ class CreateQuartetts < ActiveRecord::Migration
 		  t.string    :title
 		  t.text      :description
 		  t.string    :image_file_name
-		  t.string    :state, default => 'in_progress'
+		  t.string    :state, :default => 'in_progress'
 		  t.boolean   :public, :null => false, :default => true
 		  t.integer   :position
-		  t.integer   :cards_count, default => 0
+		  t.integer   :cards_count, :default => 0
 		  t.timestamps
 		end
 
@@ -19,11 +19,11 @@ class CreateQuartetts < ActiveRecord::Migration
 		  t.string    :country
 		  t.text      :note
 		  t.integer   :position
-		  t.integer   :categories_count, default => 0
+		  t.integer   :categories_count, :default => 0
 		  t.timestamps
 		end
 
-		create_tabel :images do |t|
+		create_table :images do |t|
 		  t.integer   :user_id
 		  t.integer   :theme_id
 		  t.integer   :cards_id
@@ -42,7 +42,7 @@ class CreateQuartetts < ActiveRecord::Migration
     	t.string    :title
     	t.text      :note
     	t.integer   :position
-    	t.integer   :contents_count, default => 0
+    	t.integer   :contents_count, :default => 0
     	t.timestamps
 	  end
 	  

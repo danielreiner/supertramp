@@ -1,0 +1,25 @@
+<div class="page-header">
+  <h1>Themen</h1>
+</div>
+
+<div class="well">
+  <%= link_to 'Neue Kategorie erstellen', new_theme_path, :class => 'btn large primary' %>
+</div>
+
+<table class="bordered-table zebra-striped">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>sichtbar?</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @themes.each do |theme| %>
+    <tr>
+      <td><%= theme.id %></td>
+      <td><%= link_to theme.title, show_theme_path(theme) %></td>     
+    </tr>
+  <% end %>
+  </tbody>
+</table>

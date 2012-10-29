@@ -1,7 +1,18 @@
 Supertramp::Application.routes.draw do
+  
   authenticated :user do
-    root :to => 'home#index'
+    root :to => 'themes#index'
   end
+
+
+  resources :themes do
+    resources :cards do
+      resources :categories do
+        resources :content
+      end
+    end
+  end
+
   devise_scope :user do
     root :to => "devise/registrations#new"
     match '/user/confirmation' => 'confirmations#update', :via => :put, :as => :update_user_confirmation

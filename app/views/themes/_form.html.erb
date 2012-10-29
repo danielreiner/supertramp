@@ -1,0 +1,16 @@
+<%= simple_form_for([blog_post], :html => { :class => "horizontal-form breadcrumb-form" }) do |f| %>
+  
+  <%= f.input :title, :input_html => { :class => "span10" } %>
+  
+
+
+  <ul class="breadcrumb-actions">
+    <li>
+      <%= f.button :submit, :class => "primary" %>
+    </li>
+    <li>
+      <%= link_to 'Zurück zur Übersicht', show_theme_path(@theme), :class => "btn info" %>
+    </li>
+  </ul>
+<% end %>
+
