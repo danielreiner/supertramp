@@ -27,7 +27,7 @@
   <% @card.categories.each do |category| %>
     <tr>
       <td><%= category.id %></td>
-      <td><%= link_to category.title, show_theme_card_category_path(category) %></td>     
+      <td><%= link_to category.title, theme_card_category_path(category) %></td>     
     </tr>
   <% end %>
   </tbody>

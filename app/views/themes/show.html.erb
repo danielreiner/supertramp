@@ -1,34 +1,22 @@
-<table class="bordered-table zebra-striped">
-  <thead>
-    <tr>
-      <th>ID</th>
-      <th>Name</th>
-      <th>Kommentar</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><%= @theme.id %></td>
-      <td><%= @theme.title %></td>
-      <td><%= link_to "Kommentar" %></td>
-      <td><%= link_to 'Thema bearbeiten', edit_theme_path, :class => 'btn large primary' %></td> 
-    </tr>
-  </tbody>
-</table>
-<table class="bordered-table zebra-striped">
-  <thead>
-    <tr>
-      <th>ID</th>
-      <th>Titel</th>
-      <th>Kommentar</th>
-    </tr>
-  </thead>
-  <tbody>
-  <% @theme.cards.each do |card| %>
-    <tr>
-      <td><%= card.id %></td>
-      <td><%= link_to card.title, show_theme_card_path(card) %></td>     
-    </tr>
-  <% end %>
-  </tbody>
-</table>
+<div class="span9">
+  <h3>
+    <%= @theme.title %>
+    <%= link_to "Kommentar" %>
+    <%= link_to 'Thema bearbeiten', edit_theme_path, :class => 'btn large primary' %>
+  </h3>
+</div>
+<div>
+  <table class="datatable table table-bordered table-condensed">
+    <thead>
+      <%= @theme.title %>-Karten
+    </thead>
+    <tbody>
+    <% @theme.cards.each do |card| %>
+      <tr>
+        <td><%= card.id %></td>
+        <td><%= link_to card.title, theme_card_path(card) %></td>     
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>
