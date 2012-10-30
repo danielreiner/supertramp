@@ -1,25 +1,16 @@
-<div class="page-header">
-  <h1>Themen</h1>
-</div>
+<h4>Themen</h4> 
 
 <div class="well">
-  <%= link_to 'Neue Kategorie erstellen', new_theme_path, :class => 'btn large primary' %>
+  <table class="bordered-table zebra-striped">
+    <tbody>
+    <% @themes.each do |theme| %>
+      <tr>
+        <td><%= theme.position %></td>
+        <td><%= link_to theme.title, theme %></td>     
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
 </div>
 
-<table class="bordered-table zebra-striped">
-  <thead>
-    <tr>
-      <th>ID</th>
-      <th>Name</th>
-      <th>sichtbar?</th>
-    </tr>
-  </thead>
-  <tbody>
-  <% @themes.each do |theme| %>
-    <tr>
-      <td><%= theme.id %></td>
-      <td><%= link_to theme.title, theme %></td>     
-    </tr>
-  <% end %>
-  </tbody>
-</table>
+<%= link_to 'Neues Thema anlegen', new_theme_path, :class => 'btn large primary' %>

@@ -27,6 +27,8 @@ class ThemesController < ApplicationController
   # GET /themes/new.xml
   def new
     @theme = Theme.new
+  # @theme.user_id = current_user
+
 
     respond_with @theme
   end

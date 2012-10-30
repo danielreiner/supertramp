@@ -1,15 +1,7 @@
-<div class="span9">
-  <h3>
-    <%= @theme.title %>
-    <%= link_to "Kommentar" %>
-    <%= link_to 'Thema bearbeiten', edit_theme_path, :class => 'btn large primary' %>
-  </h3>
-</div>
-<div>
-  <table class="datatable table table-bordered table-condensed">
-    <thead>
-      <%= @theme.title %>-Karten
-    </thead>
+<h4><%= @theme.title %> - Karten:</h4>
+<%= link_to 'Thema bearbeiten', edit_theme_path %>
+<div class="well">
+  <table class="bordered-table zebra-striped">
     <tbody>
     <% @theme.cards.each do |card| %>
       <tr>
@@ -20,3 +12,6 @@
     </tbody>
   </table>
 </div>
+
+<%= link_to 'Neue Karte anlegen', new_card_path, :class => 'btn large primary' %>
+

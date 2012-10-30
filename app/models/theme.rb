@@ -3,6 +3,8 @@ class Theme < ActiveRecord::Base
   #include AASM, PrettyParams
   
   #acts_as_commentable
+
+  attr_accessible :title, :user_id, :description, :public
   
   has_many :cards
   has_many :contributers, :source => :user

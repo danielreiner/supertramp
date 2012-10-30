@@ -1,25 +1,16 @@
-<div class="page-header">
-  <h1>Karten</h1>
-</div>
+<h4>Karten</h4> 
 
 <div class="well">
-  <%= link_to 'Neue Kategorie erstellen', new_card_path, :class => 'btn large primary' %>
+  <table class="bordered-table zebra-striped">
+    <tbody>
+    <% @cards.each do |card| %>
+      <tr>
+        <td><%= card.position %></td>
+        <td><%= link_to card.title, card %></td>     
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
 </div>
 
-<table class="datatable table table-bordered table-condensed">
-  <thead>
-    <tr>
-      <th>ID</th>
-      <th>Name</th>
-      <th>sichtbar?</th>
-    </tr>
-  </thead>
-  <tbody>
-  <% @cards.each do |card| %>
-    <tr>
-      <td><%= card.id %></td>
-      <td><%= link_to card.title, card %></td>     
-    </tr>
-  <% end %>
-  </tbody>
-</table>
+<%= link_to 'Neue Karte anlegen', new_card_path, :class => 'btn large primary' %>
