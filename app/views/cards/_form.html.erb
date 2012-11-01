@@ -1,4 +1,4 @@
-<%= simple_form_for @card do |f| %>
+<%= simple_form_for(theme_card_path(@theme, @card)) do |f| %>
   
   <%= f.input :title, :label => "Themenname", :input_html => { :class => "span4" } %>
   <%= f.input :user_id, :label => "Autor" %>
