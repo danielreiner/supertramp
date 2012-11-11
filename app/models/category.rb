@@ -31,4 +31,6 @@ class Category < ActiveRecord::Base
   validates_presence_of :user_id
   validates_presence_of :theme_id
 
+  accepts_nested_attributes_for :contents
+
 end

@@ -6,7 +6,7 @@
       <% @theme.cards.each do |card| %>
         <tr>
           <td><%= card.position %></td>
-          <td><%= link_to card.title, theme_card_path(card) %></td>     
+          <td><%= link_to card.title, theme_card_path(@theme, card) %></td>     
         </tr>
       <% end %>
     </tbody>

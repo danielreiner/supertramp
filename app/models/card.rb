@@ -3,13 +3,18 @@ class Card < ActiveRecord::Base
   # include PrettyParams
   
   # acts_as_commentable
+  attr_accessible :user_id, :theme_id, :title, :country, :note, :position
   
+  has_many :images
   has_many :categories
   has_many :contents
   has_many :contributers, :source => :user
   
-  belongs_to :creator, :class_name => "User"
+
   belongs_to :theme, :counter_cache => true
+  belongs_to :user
+  alias_method :author, :user
+  def author_id; user_id; end
   
   # has_attached_file :image,
   #     :default_url => "/images/#{I18n.t(:app).downcase}/b-userpic/noavatar-:style.jpg",
@@ -29,5 +34,9 @@ class Card < ActiveRecord::Base
   validates_presence_of :title
   validates_presence_of :user_id
   validates_presence_of :theme_id
+
+  scope :viewable, :conditions => "themes.state = 'published'"
+
+  accepts_nested_attributes_for :contents, :categories, :images
 
 end

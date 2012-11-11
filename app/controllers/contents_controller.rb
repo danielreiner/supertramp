@@ -7,8 +7,6 @@ class CardsController < ApplicationController
   # GET /cards.xml
   def index
     @cards = Card.all
-    @theme = Theme.find(params[:theme_id])
-
 
     respond_with @cards
   end
@@ -16,8 +14,7 @@ class CardsController < ApplicationController
   # GET themes/cards/1
   # GET themes/cards/1.xml
   def show
-    @theme = Theme.find(params[:theme_id])
-    @card = @theme.cards.find(params[:id])
+    @card = Card.find(params[:id])
 
     respond_with @card
 
@@ -57,32 +54,12 @@ class CardsController < ApplicationController
   # PUT themes/cards/1
   # PUT themes/cards/1.xml
   def update
-    @theme = Theme.find(params[:theme_id])
-    @card = @theme.cards.find(params[:id])
+    @card = Card.find(params[:id])
 
-    respond_to do |format|
-      if @card.update_attributes(params[:card])
-      format.html { redirect_to @theme, notice: 'Card was successfully updated.' }
-      format.json { head :ok }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @photo.errors, status: :unprocessable_entity }
-      end
+
+    if @card.update_attributes(@card)
+      format.html { redirect_to [@theme, @card], notice: 'Child was successfully updated.' }
     end
-
-
-    # def update
-    # @gallery = Gallery.find(params[:gallery_id])
-    # @photo = Photo.find(params[:id])
-    # 
-    # respond_to do |format|
-    # if @photo.update_attributes(params[:photo])
-      # format.html { redirect_to @photo, notice: 'Photo was successfully updated.' }
-      # format.json { head :ok }
-    # else
-      # format.html { render action: "edit" }
-      # format.json { render json: @photo.errors, status: :unprocessable_entity }
-    # end
 
   end
 
