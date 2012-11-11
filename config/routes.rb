@@ -6,9 +6,12 @@ Supertramp::Application.routes.draw do
 
 
   resources :themes do
+    resources :categories do
+    match 'themes/:theme_id/cards/:id' => 'cards#update', :via => :put, :as => :update_theme_cards
+    end
+
     resources :cards do
     match 'themes/:theme_id/cards/:id' => 'cards#update', :via => :put, :as => :update_theme_cards
-      resources :categories
       resources :contents
     end
   end

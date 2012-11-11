@@ -10,6 +10,7 @@ class Content < ActiveRecord::Base
   belongs_to :theme, :counter_cache => true
   belongs_to :user
   belongs_to :category
+  belongs_to :card
 
   alias_method :author, :user
   def author_id; user_id; end
@@ -32,6 +33,8 @@ class Content < ActiveRecord::Base
   validates_presence_of :title
   validates_presence_of :user_id
   validates_presence_of :theme_id
+  validates_presence_of :card_id
+  validates_presence_of :category_id
 
   scope :viewable, :conditions => "theme.state = 'published'"
 
@@ -39,5 +42,3 @@ class Content < ActiveRecord::Base
 
 end
 
-
-end

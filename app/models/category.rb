@@ -4,13 +4,13 @@ class Category < ActiveRecord::Base
   
   # acts_as_commentable
   
+  has_many :cards
   has_many :contents
   has_many :contributers, :source => :user
   has_many :comments
 
   belongs_to :creator, :class_name => "User"
   belongs_to :theme
-  belongs_to :card
   
   # has_attached_file :image,
   #     :default_url => "/images/#{I18n.t(:app).downcase}/b-userpic/noavatar-:style.jpg",

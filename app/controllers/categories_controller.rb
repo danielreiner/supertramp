@@ -7,14 +7,17 @@ class CategoriesController < ApplicationController
   # GET /categories.xml
   def index
     @categories = Category.all
+    @theme = Theme.find(params[:theme_id])
+
 
     respond_with @categories
   end
 
-  # GET themes/cards/categories/1
-  # GET themes/cards/categories/1.xml
+  # GET themes/categories/1
+  # GET themes/categories/1.xml
   def show
-    @category = Category.find(params[:id])
+    @theme = Theme.find(params[:theme_id])
+    @category = @theme.categories.find(params[:id])
 
     respond_with @category
 
@@ -23,50 +26,59 @@ class CategoriesController < ApplicationController
   # respond_with @category
   end
 
-  # GET themes/cards/categories/new
-  # GET themes/cards/categories/new.xml
+  # GET themes/categories/new
+  # GET themes/categories/new.xml
   def new
-    @category = Category.new
+    @theme = Theme.find(params[:theme_id])
+    @category = @theme.categories.build
 
     respond_with @category
   end
 
-  # GET themes/cards/categories/1/edit
+  # GET themes/categories/1/edit
   def edit
-    @category = Category.find(params[:id])
+    @theme = Theme.find(params[:theme_id])
+    @category = @theme.categories.find(params[:id])
   end
 
-  # POST themes/cards/categories
-  # POST themes/cards/categories.xml
+  # POST themes/categories
+  # POST themes/categories.xml
   def create
-    @category = Category.new(params[:category])
+    @theme = Theme.find(params[:theme_id])
+    @category = @theme.categories.build(params[:category])
 
     if @category.save
       flash[:notice] = "Category was successfully created."
     end
 
-    respond_with @category
+    respond_with @theme
   end
 
-  # PUT themes/cards/categories/1
-  # PUT themes/cards/categories/1.xml
+  # PUT themes/categories/1
+  # PUT themes/categories/1.xml
   def update
-    @category = Category.find(params[:id])
+    @theme = Theme.find(params[:theme_id])
+    @category = @theme.categories.find(params[:id])
 
-    if @category.update_attributes(params[:category])
-      flash[:notice] = "Category was successfully updated."
+    respond_to do |format|
+      if @category.update_attributes(params[:category])
+      format.html { redirect_to @theme, notice: 'Category was successfully updated.' }
+      format.json { head :ok }
+      else
+        format.html { render action: "edit" }
+        format.json { render json: @photo.errors, status: :unprocessable_entity }
+      end
     end
 
-    respond_with @category
   end
 
-  # DELETE themes/cards/categories/1
-  # DELETE themes/cards/categories/1.xml
+  # DELETE themes/categories/1
+  # DELETE themes/categories/1.xml
   def destroy
     @category = Category.find(params[:id])
     @category.destroy
 
-    respond_with @category
+    respond_with @theme
   end
 
 

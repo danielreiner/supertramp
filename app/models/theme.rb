@@ -7,6 +7,7 @@ class Theme < ActiveRecord::Base
   attr_accessible :title, :user_id, :description, :public
   
   has_many :cards
+  has_many :categories
   has_many :contributers, :source => :user
   has_many :theme_watches
   
@@ -34,7 +35,7 @@ class Theme < ActiveRecord::Base
 
   scope :viewable, :conditions => "themes.state = 'published'"
 
-  accepts_nested_attributes_for :cards
+  accepts_nested_attributes_for :cards, :categories
 
   # aasm_column :state
   # aasm_initial_state :published
