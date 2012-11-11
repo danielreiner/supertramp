@@ -3,7 +3,7 @@ class Content < ActiveRecord::Base
   # include PrettyParams
   
   # acts_as_commentable
-  attr_accessible :user_id, :theme_id, :title, :country, :note, :position
+  attr_accessible :user_id, :theme_id, :card_id, :category_id, :title, :country, :note, :position
   
   has_many :contributers, :source => :user
   
@@ -38,7 +38,7 @@ class Content < ActiveRecord::Base
 
   scope :viewable, :conditions => "theme.state = 'published'"
 
-  accepts_nested_attributes_for :comment
+  #accepts_nested_attributes_for :comment
 
 end
 

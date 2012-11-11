@@ -1,73 +1,74 @@
-class CardsController < ApplicationController
+class ContentsController < ApplicationController
 
   respond_to :html, :xml
   #before_filter :login_required
 
-  # GET /cards
-  # GET /cards.xml
+  # GET /contents
+  # GET /contents.xml
   def index
-    @cards = Card.all
+    @contents = Content.all
 
-    respond_with @cards
+    respond_with @contents
   end
 
-  # GET themes/cards/1
-  # GET themes/cards/1.xml
+  # GET themes/contents/1
+  # GET themes/contents/1.xml
   def show
-    @card = Card.find(params[:id])
+    @content = Content.find(params[:id])
 
-    respond_with @card
+    respond_with @content
 
-  # @cards = Card.all
+  # @contents = Content.all
 
-  # respond_with @card
+  # respond_with @content
   end
 
-  # GET themes/cards/new
-  # GET themes/cards/new.xml
+  # GET themes/contents/new
+  # GET themes/contents/new.xml
   def new
     @theme = Theme.find(params[:theme_id])
-    @card = @theme.cards.build
+    @card = Card.find(params[:card_id])
+    @content = @card.contents.build
+
+    respond_with @content
+  end
+
+  # GET themes/contents/1/edit
+  def edit
+    @theme = Theme.find(params[:theme_id])
+    @content = @theme.contents.find(params[:id])
+  end
+
+  # POST themes/contents
+  # POST themes/contents.xml
+  def create
+    @card = Card.find(params[:card_id])
+    @content = @card.contents.build(params[:content])
+
+    if @contend.save
+      flash[:notice] = "Content was successfully created."
+    end
 
     respond_with @card
   end
 
-  # GET themes/cards/1/edit
-  def edit
-    @theme = Theme.find(params[:theme_id])
-    @card = @theme.cards.find(params[:id])
-  end
-
-  # POST themes/cards
-  # POST themes/cards.xml
-  def create
-    @theme = Theme.find(params[:theme_id])
-    @card = @theme.cards.build(params[:card])
-
-    if @card.save
-      flash[:notice] = "Card was successfully created."
-    end
-
-    respond_with @theme
-  end
-
-  # PUT themes/cards/1
-  # PUT themes/cards/1.xml
+  # PUT themes/contents/1
+  # PUT themes/contents/1.xml
   def update
-    @card = Card.find(params[:id])
+    @content = Content.find(params[:id])
 
 
-    if @card.update_attributes(@card)
-      format.html { redirect_to [@theme, @card], notice: 'Child was successfully updated.' }
+    if @content.update_attributes(@content)
+      format.html { redirect_to [@theme, @content], notice: 'Child was successfully updated.' }
     end
 
   end
 
-  # DELETE themes/cards/1
-  # DELETE themes/cards/1.xml
+  # DELETE themes/contents/1
+  # DELETE themes/contents/1.xml
   def destroy
-    @card = Card.find(params[:id])
-    @card.destroy
+    @content = Content.find(params[:id])
+    @content.destroy
 
     respond_with @theme
   end
