@@ -1,18 +1,3 @@
 <h4>
-  <%= @card.title %>
+  <%= @content.title %>
 </h4>
-<%= link_to 'Karte bearbeiten', edit_theme_card_path %>
-
-<div class="well">  
-  <table class="bordered-table zebra-striped">
-    <tbody>
-      <% @theme.categories.each do |category| %>
-        <tr>
-          <td><%= link_to category.title %></td>   
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-</div>
-
-<%= link_to '+', new_theme_category_path(@theme, @category), :class => 'btn large primary' %>

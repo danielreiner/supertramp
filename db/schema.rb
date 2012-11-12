@@ -20,9 +20,8 @@ ActiveRecord::Schema.define(:version => 20121022230920) do
     t.string   "country"
     t.text     "note"
     t.integer  "position"
-    t.integer  "categories_count", :default => 0
-    t.datetime "created_at",                      :null => false
-    t.datetime "updated_at",                      :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "categories", :force => true do |t|
@@ -32,9 +31,8 @@ ActiveRecord::Schema.define(:version => 20121022230920) do
     t.string   "title"
     t.text     "note"
     t.integer  "position"
-    t.integer  "contents_count", :default => 0
-    t.datetime "created_at",                    :null => false
-    t.datetime "updated_at",                    :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "comments", :force => true do |t|

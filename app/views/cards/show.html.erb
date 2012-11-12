@@ -14,5 +14,17 @@
     </tbody>
   </table>
 </div>
+<div class="well">  
+  <table class="bordered-table zebra-striped">
+    <tbody>
+      <% @card.contents.each do |content| %>
+        <tr>
+          <td><%= link_to content.title %></td>   
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
 
-<%= link_to '+', new_theme_category_path(@theme, @category), :class => 'btn large primary' %>
+<%= link_to 'Neue Kategorie anlegen', new_theme_category_path(@theme, @category), :class => 'btn large primary' %>
+<%= link_to 'Neuen Inhalt hinzufügen', new_theme_card_content_path(@theme, @card, @content), :class => 'btn large primary' %>

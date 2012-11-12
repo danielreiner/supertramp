@@ -1,6 +1,8 @@
 class ThemesController < ApplicationController
 
   respond_to :html, :xml
+
+  #before_filter :authenticate_user!
   #before_filter :login_required
 
   # GET /themes

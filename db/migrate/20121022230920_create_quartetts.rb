@@ -19,7 +19,6 @@ class CreateQuartetts < ActiveRecord::Migration
 		  t.string    :country
 		  t.text      :note
 		  t.integer   :position
-		  t.integer   :categories_count, :default => 0
 		  t.timestamps
 		end
 
@@ -42,7 +41,6 @@ class CreateQuartetts < ActiveRecord::Migration
     	t.string    :title
     	t.text      :note
     	t.integer   :position
-    	t.integer   :contents_count, :default => 0
     	t.timestamps
 	  end
 	  

@@ -1,6 +1,8 @@
 class ContentsController < ApplicationController
 
   respond_to :html, :xml
+  #before_filter :authenticate_user!
+  
   #before_filter :login_required
 
   # GET /contents
@@ -45,7 +47,7 @@ class ContentsController < ApplicationController
     @card = Card.find(params[:card_id])
     @content = @card.contents.build(params[:content])
 
-    if @contend.save
+    if @content.save
       flash[:notice] = "Content was successfully created."
     end
 
