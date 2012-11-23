@@ -1,0 +1,12 @@
+<div class="well">
+  <table class="bordered-table zebra-striped">
+    <tbody>
+      <% @theme.categories.each do |category| %>
+        <tr>
+          <td><%= category.position %></td>
+          <td><%= link_to category.title, theme_category_path(@theme, category) %></td>     
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

@@ -8,7 +8,6 @@ class CreateQuartetts < ActiveRecord::Migration
 		  t.string    :state, :default => 'in_progress'
 		  t.boolean   :public, :null => false, :default => true
 		  t.integer   :position
-		  t.integer   :cards_count, :default => 0
 		  t.timestamps
 		end
 

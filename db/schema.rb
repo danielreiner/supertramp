@@ -88,7 +88,6 @@ ActiveRecord::Schema.define(:version => 20121022230920) do
     t.string   "state",           :default => "in_progress"
     t.boolean  "public",          :default => true,          :null => false
     t.integer  "position"
-    t.integer  "cards_count",     :default => 0
     t.datetime "created_at",                                 :null => false
     t.datetime "updated_at",                                 :null => false
   end

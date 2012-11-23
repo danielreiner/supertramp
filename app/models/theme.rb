@@ -53,9 +53,4 @@ class Theme < ActiveRecord::Base
   #   transitions :from => :closed, :to => :published
   # end
 
-  #def message_count(user)
-    #return forum_messages_count unless user
-    #user.admin? ? forum_messages.count : forum_messages_count
-  #end
-
 end

@@ -1,0 +1,12 @@
+<div class="well">
+  <table class="bordered-table zebra-striped">
+    <tbody>
+      <% @theme.cards.each do |card| %>
+        <tr>
+          <td><%= card.position %></td>
+          <td><%= link_to card.title, theme_card_path(@theme, card) %></td>     
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

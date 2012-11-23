@@ -61,7 +61,7 @@ class ContentsController < ApplicationController
 
 
     if @content.update_attributes(@content)
-      format.html { redirect_to [@theme, @content], notice: 'Child was successfully updated.' }
+      format.html { redirect_to [@theme, @content], notice: 'Content was successfully updated.' }
     end
 
   end

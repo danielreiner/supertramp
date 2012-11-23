@@ -11,7 +11,7 @@ class Card < ActiveRecord::Base
   has_many :contributers, :source => :user
   
 
-  belongs_to :theme, :counter_cache => true
+  belongs_to :theme
   belongs_to :user
   alias_method :author, :user
   def author_id; user_id; end

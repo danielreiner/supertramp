@@ -7,7 +7,7 @@ class Content < ActiveRecord::Base
   
   has_many :contributers, :source => :user
   
-  belongs_to :theme, :counter_cache => true
+  belongs_to :theme
   belongs_to :user
   belongs_to :category
   belongs_to :card
@@ -36,7 +36,7 @@ class Content < ActiveRecord::Base
   validates_presence_of :card_id
   validates_presence_of :category_id
 
-  scope :viewable, :conditions => "theme.state = 'published'"
+  #scope :viewable, :conditions => "theme.state = 'published'"
 
   #accepts_nested_attributes_for :comment
 

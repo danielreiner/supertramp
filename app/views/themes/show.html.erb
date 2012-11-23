@@ -1,18 +1,9 @@
-<h4><%= @theme.title %> - Karten:</h4>
-<%= link_to 'Thema bearbeiten', edit_theme_path %>
-<div class="well">
-  <table class="bordered-table zebra-striped">
-    <tbody>
-      <% @theme.cards.each do |card| %>
-        <tr>
-          <td><%= card.position %></td>
-          <td><%= link_to card.title, theme_card_path(@theme, card) %></td>     
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-</div>
+<h4><%= @theme.title %>  <%= link_to '(Thema bearbeiten)', edit_theme_path %></h4>
 
-<%= link_to 'Neue Karte anlegen', new_theme_card_path(@theme, @card), :class => 'btn large primary' %>
 <%= link_to 'Neue Kategorie anlegen', new_theme_category_path(@theme, @category), :class => 'btn large primary' %>
+<%= render 'category' %>
+    
+<%= link_to 'Neue Karte anlegen', new_theme_card_path(@theme, @card), :class => 'btn large primary' %>
+<%= render 'card' %>
+
 

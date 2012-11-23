@@ -8,7 +8,8 @@
     <tbody>
       <% @theme.categories.each do |category| %>
         <tr>
-          <td><%= link_to category.title %></td>   
+          <td><%= category.position %></td>
+          <td><%= link_to category.title, new_theme_card_content_path(@theme, @card, @content) %></td>   
         </tr>
       <% end %>
     </tbody>
