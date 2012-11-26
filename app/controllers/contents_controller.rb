@@ -1,7 +1,7 @@
 class ContentsController < ApplicationController
 
   respond_to :html, :xml
-  #before_filter :authenticate_user!
+  before_filter :authenticate_user!
   
   #before_filter :login_required
 
@@ -46,6 +46,7 @@ class ContentsController < ApplicationController
   def create
     @card = Card.find(params[:card_id])
     @content = @card.contents.build(params[:content])
+    @content.user_id = current_user
 
     if @content.save
       flash[:notice] = "Content was successfully created."

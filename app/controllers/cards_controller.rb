@@ -1,7 +1,7 @@
 class CardsController < ApplicationController
 
   respond_to :html, :xml
-  #before_filter :authenticate_user!
+  before_filter :authenticate_user!
   #before_filter :login_required
 
   # GET /cards
@@ -47,6 +47,7 @@ class CardsController < ApplicationController
   def create
     @theme = Theme.find(params[:theme_id])
     @card = @theme.cards.build(params[:card])
+    @card.user_id = current_user
 
     if @card.save
       flash[:notice] = "Card was successfully created."

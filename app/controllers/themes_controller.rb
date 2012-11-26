@@ -2,7 +2,7 @@ class ThemesController < ApplicationController
 
   respond_to :html, :xml
 
-  #before_filter :authenticate_user!
+  before_filter :authenticate_user!
   #before_filter :login_required
 
   # GET /themes
@@ -29,7 +29,6 @@ class ThemesController < ApplicationController
   # GET /themes/new.xml
   def new
     @theme = Theme.new
-  # @theme.user_id = current_user
 
 
     respond_with @theme
@@ -44,6 +43,7 @@ class ThemesController < ApplicationController
   # POST /themes.xml
   def create
     @theme = Theme.new(params[:theme])
+    @theme.user_id = current_user
 
     if @theme.save
       flash[:notice] = "Theme was successfully created."

@@ -47,9 +47,12 @@ class CategoriesController < ApplicationController
   def create
     @theme = Theme.find(params[:theme_id])
     @category = @theme.categories.build(params[:category])
+    @category.user_id = current_user
 
     if @category.save
       flash[:notice] = "Category was successfully created."
+    else
+      flash[:error] = "Category could not be created."
     end
 
     respond_with @theme

@@ -1,7 +1,6 @@
 <%= simple_form_for(@card, :url=>theme_cards_path(@theme)) do |f| %>
   
   <%= f.input :title, :label => "Kartenname", :input_html => { :class => "span4" } %>
-  <%= f.input :user_id, :label => "Autor" %>
   <%= f.input :theme_id, :label => "Thema" %>
   <%= f.submit "Karte anlegen", :class => "primary" %>
 <% end %>
