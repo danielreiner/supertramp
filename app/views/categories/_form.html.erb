@@ -1,7 +1,6 @@
 <%= simple_form_for(@category, :url=>theme_categories_path(@theme)) do |f| %>
   
   <%= f.input :title, :label => "Kategoriename", :input_html => { :class => "span4" } %>
-  <%= f.input :position, :label => "Position" %>
-  <%= f.input :theme_id, :label => "Thema" %>
+  
   <%= f.submit "Kategorie anlegen", :class => "primary" %>
 <% end %>

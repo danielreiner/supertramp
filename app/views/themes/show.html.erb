@@ -1,9 +1,13 @@
 <h4><%= @theme.title %>  <%= link_to '(Thema bearbeiten)', edit_theme_path %></h4>
 
-<%= link_to 'Neue Kategorie anlegen', new_theme_category_path(@theme, @category), :class => 'btn large primary' %>
-<%= render 'category' %>
-    
-<%= link_to 'Neue Karte anlegen', new_theme_card_path(@theme, @card), :class => 'btn large primary' %>
+  
+<p>
+  <%= render 'category' %>
+  <%= link_to 'Neue Kategorie anlegen', new_theme_category_path(@theme, @category), :class => 'btn large primary' %>
+</p>
+</br>
+<p>  
 <%= render 'card' %>
-
+<%= link_to 'Neue Karte anlegen', new_theme_card_path(@theme, @card), :class => 'btn large primary' %>
+</p>
 
