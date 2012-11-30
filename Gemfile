@@ -28,3 +28,4 @@ gem "simple_form", ">= 2.0.3"
 gem "google_visualr", ">= 2.1.2"
 gem "jquery-datatables-rails", ">= 1.11.1"
 gem 'rake', '~> 10.0.1'
+gem 'friendly_id'
