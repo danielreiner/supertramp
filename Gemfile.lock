@@ -196,7 +196,7 @@ DEPENDENCIES
   devise (>= 2.1.2)
   email_spec (>= 1.2.1)
   factory_girl_rails (>= 4.1.0)
-  friendly_id
+  friendly_id (~> 4.0.1)
   google_visualr (>= 2.1.2)
   hominid (>= 3.0.5)
   jquery-datatables-rails (>= 1.11.1)
