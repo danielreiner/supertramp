@@ -1,6 +1,7 @@
 class Card < ActiveRecord::Base
   
-  # include PrettyParams
+  extend FriendlyId
+  friendly_id :title, :use => :slugged
   
   # acts_as_commentable
   attr_accessible :user_id, :theme_id, :title, :country, :note, :position

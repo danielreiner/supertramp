@@ -1,6 +1,7 @@
 class Theme < ActiveRecord::Base
   
-  #include AASM, PrettyParams
+  extend FriendlyId
+  friendly_id :title, :use => :slugged
   
   #acts_as_commentable
 
