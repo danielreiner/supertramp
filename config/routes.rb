@@ -7,15 +7,20 @@ Supertramp::Application.routes.draw do
 
   resources :themes do
     resources :categories do
-    match 'themes/:theme_id/cards/:id' => 'cards#update', :via => :put, :as => :update_theme_cards
+      match 'themes/:theme_id/cards/:id' => 'cards#update', :via => :put, :as => :update_theme_cards
     end
 
     resources :cards do
-    match 'themes/:theme_id/cards/:id' => 'cards#update', :via => :put, :as => :update_theme_cards
-      resources :contents
-    end
-  end
+      match 'themes/:theme_id/cards/:id' => 'cards#update', :via => :put, :as => :update_theme_cards
+      resources :content do
+        match 'themes/:theme_id/cards/card_id/contents/:id' => 'contents#update', :via => :put, :as => :update_theme_card_contents
+end
 
+    end
+
+    
+    
+    
   devise_scope :user do
     root :to => "devise/registrations#new"
     match '/user/confirmation' => 'confirmations#update', :via => :put, :as => :update_user_confirmation

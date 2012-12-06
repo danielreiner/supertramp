@@ -11,16 +11,21 @@
           <td>#<%= category.position %></td>
           <td>ID-<%= category.id %></td>
           <td><%= link_to category.title, new_theme_card_content_path(@theme, @card, @content) %></td>
-          <td>
-            <% @card.contents.each do |content| %>
-              Wert: <%= content.title %>
-          <td><%= link_to 'Wert bearbeiten' %></td>
-            <% end %>
-          </td>
+          <td><%= link_to 'bearbeiten',  edit_theme_category_path(@theme, category) %></td>
         </tr>
       <% end %>
     </tbody>
   </table>
+  <table class="bordered-table zebra-striped">
+    <tbody>
+      <% @card.contents.each do |content| %>
+        <tr>
+          <td>Wert: <%= content.title %></td>
+          <td><%= link_to 'Bearbeiten',  edit_theme_card_content_path(@theme, @card, content) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>  
 </div>
 <%= link_to 'Neue Kategorie anlegen', new_theme_category_path(@theme, @category), :class => 'btn large primary' %>
 <%= link_to 'Neuen Inhalt hinzufügen', new_theme_card_content_path(@theme, @card, @content), :class => 'btn large primary' %>

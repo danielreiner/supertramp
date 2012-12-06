@@ -38,13 +38,15 @@ class ContentsController < ApplicationController
   # GET themes/contents/1/edit
   def edit
     @theme = Theme.find(params[:theme_id])
-    @content = @theme.contents.find(params[:id])
+    @content = @theme.card.contents.find(params[:id])
   end
 
   # POST themes/contents
   # POST themes/contents.xml
   def create
+    @theme = Theme.find(params[:theme_id])
     @card = Card.find(params[:card_id])
+    @category = Category.find(params[:content_id])
     @content = @card.contents.build(params[:content])
     @content.user_id = current_user
 
