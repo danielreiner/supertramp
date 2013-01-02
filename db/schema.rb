@@ -20,8 +20,8 @@ ActiveRecord::Schema.define(:version => 20121203224417) do
     t.string   "country"
     t.text     "note"
     t.integer  "position"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
     t.string   "slug"
   end
 
@@ -32,8 +32,8 @@ ActiveRecord::Schema.define(:version => 20121203224417) do
     t.string   "title"
     t.text     "note"
     t.integer  "position"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
     t.string   "slug"
   end
 
@@ -102,7 +102,6 @@ ActiveRecord::Schema.define(:version => 20121203224417) do
     t.string   "state",           :default => "in_progress"
     t.boolean  "public",          :default => true,          :null => false
     t.integer  "position"
-    t.integer  "cards_count",     :default => 0
     t.datetime "created_at",                                 :null => false
     t.datetime "updated_at",                                 :null => false
     t.string   "slug"
